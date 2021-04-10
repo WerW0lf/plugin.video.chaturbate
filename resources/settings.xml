@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings>
+<category label="30000">
+  <setting id="resolution" type="enum" label="30001" values="Auto|480p|720p|1080p" default="0"/>
+</category>
+<category label="30010">
+  <setting id="category_featured" type="bool" label="30101" default="true" />"
+  <setting id="category_women"    type="bool" label="30102" default="true" />"
+  <setting id="category_men"      type="bool" label="30103" default="true" />"
+  <setting id="category_couples"  type="bool" label="30104" default="true" />"
+  <setting id="category_trans"    type="bool" label="30105" default="true" />"
+  <setting id="category_followed" type="bool" label="30106" default="true" />"
+  <setting id="category_new"      type="bool" label="30107" default="true" />"
+  <setting id="category_hd"       type="bool" label="30108" default="true" />"
+  <setting id="category_euro"     type="bool" label="30109" default="true" />"
+  <setting id="category_asian"    type="bool" label="30110" default="true" />"
+  <setting id="category_north"    type="bool" label="30111" default="true" />"
+  <setting id="category_south"    type="bool" label="30112" default="true" />"
+  <setting id="category_other"    type="bool" label="30113" default="true" />"
+</category>
+<category label="30020">
+  <setting id="rating_featured" type="number" label="30101" default="0" />"
+  <setting id="rating_women"    type="number" label="30102" default="0" />"
+  <setting id="rating_men"      type="number" label="30103" default="0" />"
+  <setting id="rating_couples"  type="number" label="30104" default="0" />"
+  <setting id="rating_trans"    type="number" label="30105" default="0" />"
+  <setting id="rating_followed" type="number" label="30106" default="0" />"
+  <setting id="rating_new"      type="number" label="30107" default="0" />"
+  <setting id="rating_hd"       type="number" label="30108" default="0" />"
+  <setting id="rating_euro"     type="number" label="30109" default="0" />"
+  <setting id="rating_asian"    type="number" label="30110" default="0" />"
+  <setting id="rating_north"    type="number" label="30111" default="0" />"
+  <setting id="rating_south"    type="number" label="30112" default="0" />"
+  <setting id="rating_other"    type="number" label="30113" default="0" />"
+</category>
+<category label="30030">
+  <setting id="username" type="text" label="30031" />
+  <setting id="password" type="text" label="30032" />
+</category>
+</settings>

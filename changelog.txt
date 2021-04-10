@@ -1,0 +1,8 @@
+1.0.2 (2021-04-08)
+- Added Russian lang
+
+1.0.1 (2021-04-08)
+- Added tags and search
+
+1.0.0 (2021-04-06)
+- Initial version

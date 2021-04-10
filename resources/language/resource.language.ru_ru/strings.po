@@ -1,0 +1,148 @@
+# Kodi Media Center language file
+# Addon Name: Chaturbate
+# Addon id: plugin.video.chaturbate
+# Addon Provider: WerWolf
+
+msgid ""
+msgstr ""
+
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ru\n"
+
+# Settings
+
+# General
+msgctxt "#30000"
+msgid "General"
+msgstr "Общие"
+
+msgctxt "#30001"
+msgid "Resolution"
+msgstr "Разрешение"
+
+# Categories
+msgctxt "#30010"
+msgid "Categories"
+msgstr "Категории"
+
+msgctxt "#30101"
+msgid "FEATURED"
+msgstr "РЕКОМЕНДУЕМЫЕ"
+
+msgctxt "#30102"
+msgid "WOMEN"
+msgstr "ДЕВУШКИ"
+
+msgctxt "#30103"
+msgid "MEN"
+msgstr "МУЖЧИНЫ"
+
+msgctxt "#30104"
+msgid "COUPLES"
+msgstr "ПАРЫ"
+
+msgctxt "#30105"
+msgid "TRANS"
+msgstr "ТРАНСЫ"
+
+msgctxt "#30106"
+msgid "FOLLOWED"
+msgstr "ПОДПИСКИ"
+
+msgctxt "#30107"
+msgid "NEW CAMS"
+msgstr "НОВЫЕ"
+
+msgctxt "#30108"
+msgid "HD CAMS"
+msgstr "HD КАМЕРЫ"
+
+msgctxt "#30109"
+msgid "EURO RUSSIAN"
+msgstr "ЕВРОПА РОССИЯ"
+
+msgctxt "#30110"
+msgid "ASIAN"
+msgstr "АЗИЯ"
+
+msgctxt "#30111"
+msgid "NORTH AMERICAN"
+msgstr "СЕВЕРНАЯ АМЕРИКА"
+
+msgctxt "#30112"
+msgid "SOUTH AMERICAN"
+msgstr "ЮЖНАЯ АМЕРИКА"
+
+msgctxt "#30113"
+msgid "OTHER REGION"
+msgstr "ДРУГИЕ РЕГИОНЫ"
+
+# Rating
+msgctxt "#30020"
+msgid "Rating"
+msgstr "Рейтинг"
+
+# Login
+msgctxt "#30030"
+msgid "Auth"
+msgstr "Авторизация"
+
+msgctxt "#30031"
+msgid "Username"
+msgstr "Пользователь"
+
+msgctxt "#30032"
+msgid "Password"
+msgstr "Пароль"
+
+
+# addon.py
+
+# Auth
+msgctxt "#30201"
+msgid "Attention"
+msgstr "Внимание"
+
+msgctxt "#30202"
+msgid "Log in to follow your favorite broadcasters and see when they are live."
+msgstr "Зарегистрируйся чтобы подписываться на моделей."
+
+# Search
+msgctxt "#30211"
+msgid "SEARCH"
+msgstr "ПОИСК"
+
+msgctxt "#30212"
+msgid "search"
+msgstr "поиск"
+
+msgctxt "#30213"
+msgid "Create new"
+msgstr "Новый поиск"
+
+msgctxt "#30214"
+msgid "Edit"
+msgstr "Изменить"
+
+msgctxt "#30215"
+msgid "Remove"
+msgstr "Удалить"
+
+msgctxt "#30216"
+msgid "Looking for..."
+msgstr "Что ищем..."
+
+# Follow
+msgctxt "#30221"
+msgid "Follow"
+msgstr "Подписаться"
+
+msgctxt "#30222"
+msgid "Unfollow"
+msgstr "Отписаться"
+
+# Next
+msgctxt "#30231"
+msgid "Next page"
+msgstr "Следующая страница"

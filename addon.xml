@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="plugin.video.chaturbate" name="Chaturbate" version="1.0.2" provider-name="WerWolf">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+    <import addon="script.module.requests" version="2.12.4"/>
+    <import addon="script.module.beautifulsoup" version="3.2.1"/>
+  </requires>
+  <extension point="xbmc.python.pluginsource" library="addon.py">
+    <provides>video</provides>
+  </extension>
+  <extension point="xbmc.addon.metadata">
+    <assets>
+      <icon>icon.png</icon>
+      <fanart>fanart.png</fanart>
+    </assets>
+    <summary lang="en_US">Plugin for Chaturbate</summary>
+    <description lang="en_US">Chaturbate is one of the biggest webcam sites of the world.</description>
+    <disclaimer lang="en_US">This plugin is not endorsed by Chaturbate.</disclaimer>
+    <summary lang="ru_RU">Видеодополнение Chaturbate</summary>
+    <description lang="ru_RU">Chaturbate крупнейший видеочат с моделями для взрослых.</description>
+    <platform>all</platform>
+    <license>GNU GENERAL PUBLIC LICENSE. Version 3</license>
+  </extension>
+</addon>

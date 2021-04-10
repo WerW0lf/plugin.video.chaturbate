@@ -1,0 +1,149 @@
+# Kodi Media Center language file
+# Addon Name: Chaturbate
+# Addon id: plugin.video.chaturbate
+# Addon Provider: WerWolf
+
+msgid ""
+msgstr ""
+
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en\n"
+
+
+# Settings
+
+# General
+msgctxt "#30000"
+msgid "General"
+msgstr ""
+
+msgctxt "#30001"
+msgid "Resolution"
+msgstr ""
+
+# Categories
+msgctxt "#30010"
+msgid "Categories"
+msgstr ""
+
+msgctxt "#30101"
+msgid "FEATURED"
+msgstr ""
+
+msgctxt "#30102"
+msgid "WOMEN"
+msgstr ""
+
+msgctxt "#30103"
+msgid "MEN"
+msgstr ""
+
+msgctxt "#30104"
+msgid "COUPLES"
+msgstr ""
+
+msgctxt "#30105"
+msgid "TRANS"
+msgstr ""
+
+msgctxt "#30106"
+msgid "FOLLOWED"
+msgstr ""
+
+msgctxt "#30107"
+msgid "NEW CAMS"
+msgstr ""
+
+msgctxt "#30108"
+msgid "HD CAMS"
+msgstr ""
+
+msgctxt "#30109"
+msgid "EURO RUSSIAN"
+msgstr ""
+
+msgctxt "#30110"
+msgid "ASIAN"
+msgstr ""
+
+msgctxt "#30111"
+msgid "NORTH AMERICAN"
+msgstr ""
+
+msgctxt "#30112"
+msgid "SOUTH AMERICAN"
+msgstr ""
+
+msgctxt "#30113"
+msgid "OTHER REGION"
+msgstr ""
+
+# Rating
+msgctxt "#30020"
+msgid "Rating"
+msgstr ""
+
+# Login
+msgctxt "#30030"
+msgid "Auth"
+msgstr ""
+
+msgctxt "#30031"
+msgid "Username"
+msgstr ""
+
+msgctxt "#30032"
+msgid "Password"
+msgstr ""
+
+
+# addon.py
+
+# Auth
+msgctxt "#30201"
+msgid "Attention"
+msgstr ""
+
+msgctxt "#30202"
+msgid "Log in to follow your favorite broadcasters and see when they are live."
+msgstr ""
+
+# Search
+msgctxt "#30211"
+msgid "SEARCH"
+msgstr ""
+
+msgctxt "#30212"
+msgid "search"
+msgstr ""
+
+msgctxt "#30213"
+msgid "create new"
+msgstr ""
+
+msgctxt "#30214"
+msgid "Edit"
+msgstr ""
+
+msgctxt "#30215"
+msgid "Remove"
+msgstr ""
+
+msgctxt "#30216"
+msgid "Looking for..."
+msgstr ""
+
+# Follow
+msgctxt "#30221"
+msgid "Follow"
+msgstr ""
+
+msgctxt "#30222"
+msgid "Unfollow"
+msgstr ""
+
+# Next
+msgctxt "#30231"
+msgid "Next page"
+msgstr ""
