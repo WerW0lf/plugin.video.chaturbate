@@ -1,25 +1,20 @@
 # -*- coding=utf8 -*-
 """
-#******************************************************************************
-# addon.py
-#------------------------------------------------------------------------------
-#
-# Copyright (c) 2021 WerWolf <mail4werwolf@gmail.com>
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation; either version 2 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
-#******************************************************************************
+Copyright (c) 2021 WerWolf <mail4werwolf@gmail.com>
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 """
 
 import sys
@@ -99,6 +94,7 @@ class XbmcContext(object):
         Calls other functions depending on the provided argv
         :return: None
         """
+        xbmc.log("ARGV: %s" % (sys.argv), level=xbmc.LOGNOTICE)
         if not self._params:
             # If the plugin is called from Kodi UI without any parameters,
             # display the list of video categories
@@ -322,10 +318,12 @@ class XbmcContext(object):
             if name:
                 image = model['image']
                 info = model['info']
-
+                if model['follow']:
+                    label = name + " *"
+                else:
+                    label = name
                 url = '?'.join([self._url, urllib.urlencode(params)])
-
-                item = xbmcgui.ListItem(name)
+                item = xbmcgui.ListItem(label)
                 item.setArt({ 'icon': image, 'thumb': image, 'fanart': image })
                 item.setInfo('video', {'title': name, 'mediatype': 'video', 'plot': info})
                 item.setCast([{"name": name}])
@@ -391,6 +389,7 @@ class XbmcContext(object):
     def _follow_model(self, action, name):
         if self._has_auth():
             ret = self._chaturbate.follow_model(action, name)
+            xbmc.log("Model %s following status %s" % (name, ret), level=xbmc.LOGNOTICE)
 
 
     def _create_search_context_menu(self, keyword, category, tag):

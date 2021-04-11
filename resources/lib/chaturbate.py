@@ -1,25 +1,20 @@
 # -*- coding=utf8 -*-
 """
-#******************************************************************************
-# addon.py
-#------------------------------------------------------------------------------
-#
-# Copyright (c) 2021 WerWolf <mail4werwolf@gmail.com>
-#
-# This program is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation; either version 2 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program; if not, write to the Free Software
-# Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
-#******************************************************************************
+Copyright (c) 2021 WerWolf <mail4werwolf@gmail.com>
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 """
 
 import os
@@ -27,6 +22,8 @@ import re
 import urllib
 import pickle
 import requests
+
+import xbmc
 
 import BeautifulSoup
 
@@ -133,9 +130,9 @@ class Chaturbate:
 
         req = self._req.get(url)
 
-        if not self._is_logged(req.text):
-            if self._login():
-                req = self._req.get(url)
+        if re.findall(r'login', req.url):
+            self._login()
+            req = self._req.get(url)
 
         parser = BeautifulSoup.BeautifulSoup(req.text)
 
@@ -153,6 +150,11 @@ class Chaturbate:
             model = {}
             model['name'] = room.find('a')['href'].replace('/','')
             model['image'] = room.find('img')['src']
+
+            if room.find('div', {'title': 'Unfollow'}):
+                model['follow'] = True
+            else:
+                model['follow'] = False
 
             info = 'Name: %s' % model['name']
 
@@ -173,7 +175,7 @@ class Chaturbate:
             cams = room.find('li', {'class': 'cams'}).text.split(',')
 
             info = info + '\nViewers: %s\nLast Broadcast: %s\nLocation: %s\nTitle: %s' % (
-                              cams[1].split(' ')[0], cams[0],
+                              cams[1].strip().split(' ')[0], cams[0].strip(),
                               room.find('li', {'class': 'location'}).text,
                               room.find('ul', {'class': 'subject'}).text)
 
@@ -242,15 +244,14 @@ class Chaturbate:
         :param: resolution: str
         :return: stream: str
         """
-        if not playlist:
-            return None
-        regex_chunks = re.compile(STREAM_PATTERN, re.DOTALL)
-        stream_base_url = re.findall(r'(.*)playlist.*', playlist)[0]
-        req = requests.get(playlist)
-        for _, res, chunk in regex_chunks.findall(req.text):
-            resol = res.split('x')[1] + 'p'
-            if resolution == resol:
-                return "%s%s" % (stream_base_url, chunk)
+        if playlist:
+            regex_chunks = re.compile(STREAM_PATTERN, re.DOTALL)
+            stream_base_url = re.findall(r'(.*)playlist.*', playlist)[0]
+            req = requests.get(playlist)
+            for _, res, chunk in regex_chunks.findall(req.text):
+                resol = res.split('x')[1] + 'p'
+                if resolution == resol:
+                    return "%s%s" % (stream_base_url, chunk)
         return playlist
 
 
@@ -269,27 +270,24 @@ class Chaturbate:
             headers = {'Referer': url})
         status = re.findall(r'"following": (.*?),', req.text)
 
-        if not status:
-            if self._login():
-                req = self._req.post(url,
-                    data = {'csrfmiddlewaretoken': self._csrfmiddlewaretoken},
-                    cookies = self._csrftoken,
-                    headers = {'Referer': url})
-                status = re.findall(r'"following": (.*?),', req.text)
+        if re.findall(r'login', req.url):
+            self._login()
+            req = self._req.post(url,
+                data = {'csrfmiddlewaretoken': self._csrfmiddlewaretoken},
+                cookies = self._csrftoken,
+                headers = {'Referer': url})
+            status = re.findall(r'"following": (.*?),', req.text)
 
         if len(status) > 0:
             return status[0]
         return None
 
 
-    def _is_logged(self, text):
-        parser = BeautifulSoup.BeautifulSoup(text)
-        return parser.find('input', {'name': 'username'}) is None
-
-
     def _login(self):
         if not self._username or not self._password:
-            return False
+            return
+
+        xbmc.log("Login as %s" % self._username, level=xbmc.LOGNOTICE)
 
         url = "%s/auth/login/" % (CHATURBATE_URL)
         req = self._req.get(url)
@@ -308,5 +306,3 @@ class Chaturbate:
             headers = {'Referer': url})
 
         self._save_cookie()
-
-        return self._is_logged(req.text)
